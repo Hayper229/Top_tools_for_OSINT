@@ -56,7 +56,7 @@ async def smart_join(target):
     try:
         chat = await client.join_chat(target)
         # --- [РЕЖИМ ПРИЗРАК] ---
-        async for m in client.get_chat_history(chat.id, limit=10):
+        async for m in client.get_chat_history(chat.id, limit=None):
             if m.service and (m.new_chat_members or m.joined_by_invite):
                 me = await client.get_me()
                 is_me = False
